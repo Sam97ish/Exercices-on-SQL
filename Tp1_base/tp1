@@ -1,0 +1,43 @@
+first question;
+
+table creation;
+
+first table already created
+
+second table;
+
+
+CREATE TABLE Athlete(
+idAthlete int,
+nom varchar(180),
+prenom varchar(180),
+sexe char(1),
+dateNaissance DATE,
+idNationalite int references Nationalite (idNationalite)
+);
+
+3re;
+
+CREATE TABLE Sport(
+idSport int PRIMARY KEY,
+sport varchar(180)
+);
+
+4th;
+
+CREATE TABLE Epreuve(
+idEpreuve int PRIMARY KEY,
+idSport int REFERENCES Sport (idSport),
+epreuve varchar (180)
+);
+
+
+5th;
+
+CREATE TABLE Participer(
+idAthlete INT REFERENCES Athlete (idAthlete),
+idEpreuve INT REFERENCES Epreuve (idEpreuve),
+dateRecord DATE,
+temps TIME,
+PRIMARY KEY (idAthlete, idEpreuve, dateRecord)
+);
